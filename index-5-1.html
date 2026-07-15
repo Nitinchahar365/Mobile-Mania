@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haryana Mobile — Hanumangarh | Mobile Mania</title>
+<meta name="description" content="Haryana Mobile, Hanumangarh — latest smartphones, accessories, repair & warranty support. Trusted mobile shop in Rajasthan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#0e1a2b;
+    --bg-panel:#152740;
+    --bg-panel-2:#1b3050;
+    --accent:#ff7a30;
+    --accent-2:#2fe6c0;
+    --text-hi:#f2f6fb;
+    --text-mid:#b9c6db;
+    --text-low:#7e8ca4;
+    --line: rgba(255,255,255,0.08);
+    --radius: 22px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg-deep);
+    color:var(--text-hi);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3, .display{
+    font-family:'Space Grotesk', sans-serif;
+    letter-spacing:-0.01em;
+  }
+  .mono{ font-family:'JetBrains Mono', monospace; }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+  ::selection{ background:var(--accent); color:#0e1a2b; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; }
+  }
+
+  /* ---------- Decorative "status bar" — the signature element ---------- */
+  .statusbar{
+    position:sticky; top:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:10px 22px;
+    background:rgba(14,26,43,0.9);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid var(--line);
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--text-mid);
+  }
+  .statusbar .clock{ color:var(--text-hi); font-weight:600; letter-spacing:0.02em; }
+  .statusbar .right{ display:flex; align-items:center; gap:10px; }
+  .sig-bars{ display:flex; align-items:flex-end; gap:2px; height:10px; }
+  .sig-bars span{ width:3px; background:var(--accent-2); border-radius:1px; }
+  .sig-bars span:nth-child(1){ height:35%; }
+  .sig-bars span:nth-child(2){ height:60%; }
+  .sig-bars span:nth-child(3){ height:80%; }
+  .sig-bars span:nth-child(4){ height:100%; }
+  .battery{
+    width:22px; height:11px; border:1.4px solid var(--text-mid); border-radius:3px;
+    position:relative; display:inline-block;
+  }
+  .battery::after{
+    content:''; position:absolute; right:-4px; top:3px; width:2px; height:5px;
+    background:var(--text-mid); border-radius:0 2px 2px 0;
+  }
+  .battery i{
+    position:absolute; top:1px; left:1px; bottom:1px; width:70%;
+    background:var(--accent-2); border-radius:1px; display:block;
+  }
+
+  /* ---------- Nav ---------- */
+  nav{
+    position:sticky; top:33px; z-index:99;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 32px;
+    background:linear-gradient(180deg, rgba(14,26,43,0.98), rgba(14,26,43,0.85));
+    border-bottom:1px solid var(--line);
+  }
+  .brand{ display:flex; align-items:center; gap:10px; font-weight:700; font-size:18px; }
+  .brand .dot{ width:9px; height:9px; border-radius:50%; background:var(--accent); box-shadow:0 0 12px var(--accent); }
+  .navlinks{ display:flex; gap:28px; font-size:14px; color:var(--text-mid); }
+  .navlinks a:hover{ color:var(--accent-2); }
+  .navlinks{ display:none; }
+  @media(min-width:760px){ .navlinks{ display:flex; } }
+  .navcall{
+    padding:9px 18px; border-radius:100px; background:var(--accent); color:#0e1a2b;
+    font-weight:600; font-size:13px; white-space:nowrap;
+  }
+
+  section{ padding:88px 22px; max-width:1180px; margin:0 auto; }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:0.14em;
+    color:var(--accent-2); text-transform:uppercase; margin-bottom:14px; display:block;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding-top:70px; padding-bottom:60px;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:50px; align-items:center;
+  }
+  @media(max-width:860px){ .hero{ grid-template-columns:1fr; } }
+  .hero h1{
+    font-size:clamp(2.4rem, 5.4vw, 4.2rem); line-height:1.02; font-weight:700;
+  }
+  .hero h1 span{ color:var(--accent); }
+  .hero p.lead{ margin-top:20px; font-size:17px; color:var(--text-mid); max-width:46ch; line-height:1.6; }
+  .hero-cta{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+  .btn{
+    padding:14px 26px; border-radius:100px; font-weight:600; font-size:14.5px;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{ background:var(--accent); color:#0e1a2b; }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 10px 26px rgba(255,122,48,0.35); }
+  .btn-ghost{ border:1.4px solid var(--line); color:var(--text-hi); }
+  .btn-ghost:hover{ border-color:var(--accent-2); color:var(--accent-2); }
+
+  .hero-address{
+    margin-top:34px; display:flex; gap:10px; align-items:flex-start;
+    font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--text-low);
+  }
+
+  /* Phone mockup */
+  .phone-mock{
+    position:relative; width:100%; max-width:300px; margin:0 auto;
+    background:#0a1524; border-radius:38px; padding:14px;
+    border:1px solid var(--line);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(255,255,255,0.02);
+  }
+  .phone-mock .notch{
+    position:absolute; top:14px; left:50%; transform:translateX(-50%);
+    width:90px; height:20px; background:#0a1524; border-radius:0 0 14px 14px; z-index:2;
+  }
+  .phone-screen{
+    border-radius:26px; overflow:hidden; aspect-ratio:9/18.5; position:relative;
+    background:linear-gradient(160deg, var(--bg-panel-2), var(--bg-deep));
+  }
+  .phone-screen img{ width:100%; height:100%; object-fit:cover; opacity:0.85; }
+  .phone-ui{
+    position:absolute; inset:0; padding:34px 16px 20px;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    background:linear-gradient(180deg, rgba(10,21,36,0) 40%, rgba(10,21,36,0.92) 100%);
+  }
+  .phone-ui .tag{
+    font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--accent-2);
+    letter-spacing:0.08em; text-transform:uppercase; margin-bottom:6px;
+  }
+  .phone-ui h3{ font-size:20px; }
+  .phone-ui p{ font-size:12px; color:var(--text-mid); margin-top:6px; }
+
+  /* ---------- About ---------- */
+  .about-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;
+  }
+  @media(max-width:860px){ .about-grid{ grid-template-columns:1fr; gap:36px; } }
+  .about-grid h2{ font-size:clamp(1.7rem, 3.4vw, 2.4rem); font-weight:600; margin-bottom:18px; }
+  .about-grid p{ color:var(--text-mid); line-height:1.75; font-size:15.5px; }
+  .about-img{
+    border-radius:var(--radius); overflow:hidden; aspect-ratio:4/3.1;
+    border:1px solid var(--line);
+  }
+  .about-img img{ width:100%; height:100%; object-fit:cover; }
+  .stat-row{ display:flex; gap:36px; margin-top:32px; flex-wrap:wrap; }
+  .stat-row .num{ font-family:'Space Grotesk'; font-size:28px; font-weight:700; color:var(--accent); }
+  .stat-row .lbl{ font-size:12px; color:var(--text-low); font-family:'JetBrains Mono', monospace; }
+
+  /* ---------- Services (app-icon grid) ---------- */
+  .section-head{ margin-bottom:44px; max-width:60ch; }
+  .section-head h2{ font-size:clamp(1.7rem, 3.4vw, 2.4rem); font-weight:600; }
+  .section-head p{ color:var(--text-mid); margin-top:12px; font-size:15px; }
+
+  .app-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:18px;
+  }
+  .app-tile{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:24px;
+    padding:26px 22px; cursor:default; user-select:none;
+    transition:transform .2s ease, border-color .2s ease, background .2s ease;
+  }
+  .app-tile:hover{ transform:translateY(-4px); border-color:rgba(255,122,48,0.4); background:var(--bg-panel-2); }
+  .app-tile .icon{
+    width:46px; height:46px; border-radius:14px; display:flex; align-items:center; justify-content:center;
+    font-size:21px; margin-bottom:18px; background:rgba(255,122,48,0.14);
+  }
+  .app-tile h3{ font-size:16.5px; font-weight:600; margin-bottom:8px; }
+  .app-tile p{ font-size:13.5px; color:var(--text-mid); line-height:1.55; }
+  .app-tile .badge{
+    display:inline-block; margin-top:14px; font-family:'JetBrains Mono', monospace;
+    font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--accent-2); border:1px solid rgba(47,230,192,0.3); border-radius:100px;
+    padding:4px 10px;
+  }
+  /* Featured "Latest Smartphones" tile — visual only, not a link, doesn't open anything */
+  .app-tile.featured{
+    grid-column:span 2;
+    background:linear-gradient(135deg, rgba(255,122,48,0.16), var(--bg-panel));
+    border-color:rgba(255,122,48,0.35);
+    display:flex; align-items:center; gap:22px;
+  }
+  @media(max-width:600px){ .app-tile.featured{ grid-column:span 1; flex-direction:column; align-items:flex-start; } }
+  .app-tile.featured .icon{ flex-shrink:0; width:58px; height:58px; font-size:26px; background:rgba(255,122,48,0.22); margin-bottom:0; }
+
+  /* ---------- Gallery ---------- */
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:14px;
+  }
+  @media(max-width:760px){ .gallery-grid{ grid-template-columns:repeat(2,1fr); } }
+  .gallery-grid figure{
+    border-radius:18px; overflow:hidden; aspect-ratio:1/1.1; border:1px solid var(--line);
+    position:relative;
+  }
+  .gallery-grid img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+  .gallery-grid figure:hover img{ transform:scale(1.06); }
+  .gallery-grid figure:nth-child(2){ margin-top:26px; }
+  .gallery-grid figure:nth-child(4){ margin-top:26px; }
+  @media(max-width:760px){ .gallery-grid figure:nth-child(n){ margin-top:0; } }
+
+  /* ---------- Why us ---------- */
+  .why-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:2px;
+    background:var(--line); border-radius:var(--radius); overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .why-item{ background:var(--bg-panel); padding:28px 24px; }
+  .why-item .mark{ color:var(--accent-2); font-family:'JetBrains Mono', monospace; font-size:13px; margin-bottom:12px; display:block; }
+  .why-item h3{ font-size:15.5px; font-weight:600; margin-bottom:8px; }
+  .why-item p{ font-size:13.5px; color:var(--text-mid); line-height:1.55; }
+
+  /* ---------- Location ---------- */
+  .location-wrap{
+    display:grid; grid-template-columns:1.2fr 0.8fr; gap:0; border-radius:var(--radius);
+    overflow:hidden; border:1px solid var(--line);
+  }
+  @media(max-width:860px){ .location-wrap{ grid-template-columns:1fr; } }
+  .map-embed iframe{ width:100%; height:100%; min-height:340px; border:0; filter:grayscale(0.3) contrast(1.05); }
+  .location-card{ background:var(--bg-panel); padding:34px 30px; }
+  .location-card h3{ font-size:19px; margin-bottom:18px; }
+  .loc-row{ display:flex; gap:12px; margin-bottom:18px; font-size:14px; color:var(--text-mid); }
+  .loc-row .k{ color:var(--accent-2); font-family:'JetBrains Mono', monospace; font-size:11.5px; min-width:68px; text-transform:uppercase; letter-spacing:0.06em; padding-top:2px; }
+  .loc-row .v{ color:var(--text-hi); }
+  .loc-row a:hover{ color:var(--accent); }
+
+  /* ---------- Contact CTA ---------- */
+  .cta-panel{
+    background:linear-gradient(135deg, var(--bg-panel-2), var(--bg-panel));
+    border:1px solid var(--line); border-radius:var(--radius);
+    padding:56px 44px; text-align:center;
+  }
+  .cta-panel h2{ font-size:clamp(1.6rem, 3.6vw, 2.3rem); margin-bottom:14px; }
+  .cta-panel p{ color:var(--text-mid); margin-bottom:30px; }
+  .cta-btns{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+  /* ---------- Footer (dock style) ---------- */
+  footer{
+    border-top:1px solid var(--line); padding:40px 22px 30px;
+    display:flex; flex-direction:column; align-items:center; gap:18px;
+    text-align:center; color:var(--text-low); font-size:12.5px;
+  }
+  .dock{
+    display:flex; gap:10px; padding:10px; background:var(--bg-panel);
+    border:1px solid var(--line); border-radius:22px;
+  }
+  .dock a{
+    width:44px; height:44px; border-radius:14px; background:var(--bg-panel-2);
+    display:flex; align-items:center; justify-content:center; font-size:18px;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .dock a:hover{ transform:translateY(-4px); background:var(--accent); }
+  .dock a svg{ width:20px; height:20px; }
+  .btn svg{ width:16px; height:16px; flex-shrink:0; }
+  .icon-wa{ color:#25D366; }
+  .icon-fb{ color:#1877F2; }
+  .icon-ig{ color:#E1306C; }
+  .icon-call{ color:var(--accent-2); }
+  .icon-mail{ color:var(--text-hi); }
+  .dock a:hover svg{ color:#0e1a2b; }
+  .btn-primary svg{ color:#0e1a2b; }
+  .foot-links{ display:flex; gap:20px; font-family:'JetBrains Mono', monospace; font-size:11.5px; }
+  .foot-links a:hover{ color:var(--accent-2); }
+
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- Chatbot widget ---------- */
+  .chat-toggle{
+    position:fixed; right:22px; bottom:22px; z-index:200;
+    width:58px; height:58px; border-radius:50%;
+    background:var(--accent); color:#0e1a2b;
+    display:flex; align-items:center; justify-content:center;
+    font-size:24px; border:none; cursor:pointer;
+    box-shadow:0 10px 30px rgba(255,122,48,0.4);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .chat-toggle:hover{ transform:translateY(-3px) scale(1.04); box-shadow:0 14px 36px rgba(255,122,48,0.5); }
+  .chat-toggle .icon-close{ display:none; }
+  .chat-toggle.open .icon-chat{ display:none; }
+  .chat-toggle.open .icon-close{ display:block; }
+
+  .chat-window{
+    position:fixed; right:22px; bottom:92px; z-index:199;
+    width:340px; max-width:calc(100vw - 44px);
+    height:460px; max-height:calc(100vh - 140px);
+    background:var(--bg-panel);
+    border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:0 30px 80px rgba(0,0,0,0.55);
+    display:flex; flex-direction:column; overflow:hidden;
+    opacity:0; transform:translateY(16px) scale(0.98); pointer-events:none;
+    transition:opacity .22s ease, transform .22s ease;
+  }
+  .chat-window.open{ opacity:1; transform:translateY(0) scale(1); pointer-events:auto; }
+
+  .chat-header{
+    padding:16px 18px; display:flex; align-items:center; gap:10px;
+    background:linear-gradient(135deg, var(--bg-panel-2), var(--bg-panel));
+    border-bottom:1px solid var(--line);
+  }
+  .chat-header .dot{ width:9px; height:9px; border-radius:50%; background:var(--accent-2); box-shadow:0 0 10px var(--accent-2); flex-shrink:0; }
+  .chat-header .info h4{ font-size:14.5px; font-weight:600; font-family:'Space Grotesk', sans-serif; }
+  .chat-header .info p{ font-size:11.5px; color:var(--text-low); font-family:'JetBrains Mono', monospace; margin-top:2px; }
+
+  .chat-body{
+    flex:1; overflow-y:auto; padding:18px; display:flex; flex-direction:column; gap:12px;
+  }
+  .chat-msg{
+    max-width:82%; padding:11px 14px; border-radius:16px; font-size:13.5px; line-height:1.5;
+  }
+  .chat-msg.bot{
+    background:var(--bg-panel-2); color:var(--text-hi); align-self:flex-start; border-bottom-left-radius:4px;
+  }
+  .chat-msg.user{
+    background:var(--accent); color:#0e1a2b; align-self:flex-end; border-bottom-right-radius:4px;
+  }
+
+  .chat-input-row{
+    display:flex; gap:8px; padding:14px; border-top:1px solid var(--line);
+    background:var(--bg-panel);
+  }
+  .chat-input-row input{
+    flex:1; background:var(--bg-deep); border:1px solid var(--line); color:var(--text-hi);
+    border-radius:100px; padding:11px 16px; font-size:13.5px; font-family:'Inter', sans-serif;
+    outline:none;
+  }
+  .chat-input-row input:focus{ border-color:var(--accent-2); }
+  .chat-input-row input::placeholder{ color:var(--text-low); }
+  .chat-send{
+    width:42px; height:42px; border-radius:50%; border:none; background:var(--accent-2);
+    color:#0e1a2b; font-size:16px; display:flex; align-items:center; justify-content:center;
+    cursor:pointer; flex-shrink:0; transition:transform .15s ease;
+  }
+  .chat-send:hover{ transform:scale(1.06); }
+
+  @media(max-width:420px){
+    .chat-window{ right:12px; bottom:82px; }
+    .chat-toggle{ right:16px; bottom:16px; }
+  }
+
+  .chat-quick{
+    display:flex; flex-wrap:wrap; gap:8px; align-self:flex-start; max-width:100%;
+  }
+  .chat-chip{
+    background:transparent; border:1.2px solid rgba(47,230,192,0.35); color:var(--accent-2);
+    font-size:12px; font-family:'Inter', sans-serif; padding:8px 13px; border-radius:100px;
+    cursor:pointer; transition:background .15s ease, color .15s ease;
+  }
+  .chat-chip:hover{ background:rgba(47,230,192,0.14); }
+</style>
+</head>
+<body>
+
+  <!-- Decorative status bar — purely visual, phone-screen motif, no live device data -->
+  <div class="statusbar">
+    <span class="clock" id="clock">09:41</span>
+    <div class="right">
+      <span>Hanumangarh</span>
+      <div class="sig-bars"><span></span><span></span><span></span><span></span></div>
+      <span class="battery"><i></i></span>
+    </div>
+  </div>
+
+  <nav>
+    <div class="brand"><span class="dot"></span> Haryana Mobile</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#location">Location</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="navcall" href="tel:+919809044444"><svg class="icon-call" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:-3px;margin-right:6px;width:14px;height:14px;color:#0e1a2b"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>Call Shop</a>
+  </nav>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div>
+      <span class="eyebrow">Hanumangarh · Rajasthan</span>
+      <h1>Mobile Mania,<br><span>har jeb ke liye.</span></h1>
+      <p class="lead">Haryana Mobile — Hanumangarh ka trusted naam smartphones, accessories aur repair services ke liye. Latest handsets se lekar genuine parts tak, sab kuch ek hi jagah.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="tel:+919809044444"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>Call Now</a>
+        <a class="btn btn-ghost" href="https://wa.me/919983007999" target="_blank" rel="noopener"><svg class="icon-wa" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5.1-1.3C8.5 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3C4 14.8 3.6 13.4 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8-8.4 8z"/></svg>WhatsApp Us</a>
+      </div>
+      <div class="hero-address">
+        <span>📍</span>
+        <span>Hanumangarh Town, 335513, Rajasthan</span>
+      </div>
+    </div>
+    <div>
+      <div class="phone-mock">
+        <div class="notch"></div>
+        <div class="phone-screen">
+          <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=900&auto=format&fit=crop" alt="Latest smartphone display">
+          <div class="phone-ui">
+            <span class="tag">Now in store</span>
+            <h3>Latest Smartphones</h3>
+            <p>Android & iOS — flagship se budget tak</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="reveal">
+        <span class="eyebrow">About Haryana Mobile</span>
+        <h2>Quality, convenience aur trust — ek hi dukaan par.</h2>
+        <p>Haryana Mobile, Hanumangarh ki sabse reputable mobile retail aur service dukaano me se ek hai. Hamara vision simple hai — customers ko best mobile solutions tak pahunchana, chahe wo latest smartphone ho ya reliable accessory. Hum quality aur convenience ke beech ka gap khatam karte hain, taaki har customer ko sahi cheez, sahi keemat par mile.</p>
+        <div class="stat-row">
+          <div><div class="num">100%</div><div class="lbl">GENUINE PRODUCTS</div></div>
+          <div><div class="num">A–Z</div><div class="lbl">REPAIR & SUPPORT</div></div>
+          <div><div class="num">1:1</div><div class="lbl">EXPERT CONSULTATION</div></div>
+        </div>
+      </div>
+      <div class="about-img reveal">
+        <img src="https://images.unsplash.com/photo-1522125670776-3c7abb882bc2?q=80&w=900&auto=format&fit=crop" alt="Customer using smartphone">
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section id="services">
+    <div class="section-head reveal">
+      <span class="eyebrow">Services</span>
+      <h2>Jo bhi chahiye, sab yahan hai</h2>
+      <p>Smartphones se lekar repair tak — Haryana Mobile har mobile zaroorat ka ek hi hal hai.</p>
+    </div>
+    <div class="app-grid">
+      <div class="app-tile featured reveal">
+        <div class="icon">📱</div>
+        <div>
+          <h3>Latest Smartphone Sales</h3>
+          <p>Android aur iOS devices, top brands se — flagship aur budget-friendly, dono options available.</p>
+          <span class="badge">Just arrived</span>
+        </div>
+      </div>
+      <div class="app-tile reveal">
+        <div class="icon">🔌</div>
+        <h3>Mobile Accessories</h3>
+        <p>Chargers, earphones, tempered glass, cases, power banks aur zaroori add-ons.</p>
+      </div>
+      <div class="app-tile reveal">
+        <div class="icon">🔧</div>
+        <h3>Repair & Support</h3>
+        <p>Screen replacement, battery fix, software update aur complete diagnostics.</p>
+      </div>
+      <div class="app-tile reveal">
+        <div class="icon">💬</div>
+        <h3>Expert Advice</h3>
+        <p>Aapke budget aur zaroorat ke hisaab se sahi phone chunne me personalized guidance.</p>
+      </div>
+      <div class="app-tile reveal">
+        <div class="icon">📦</div>
+        <h3>Warranty & After-Sales</h3>
+        <p>Transparent warranty policies aur reliable customer service assistance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GALLERY ================= -->
+  <section id="gallery">
+    <div class="section-head reveal">
+      <span class="eyebrow">Gallery</span>
+      <h2>Dukaan aur devices ki jhalak</h2>
+    </div>
+    <div class="gallery-grid">
+      <figure class="reveal"><img src="https://images.unsplash.com/photo-1592890288564-76628a30a657?q=80&w=700&auto=format&fit=crop" alt="Black android smartphone"></figure>
+      <figure class="reveal"><img src="https://images.unsplash.com/photo-1603184017968-953f59cd2e37?q=80&w=700&auto=format&fit=crop" alt="Smartphone on white table"></figure>
+      <figure class="reveal"><img src="https://images.unsplash.com/photo-1480694313141-fce5e697ee25?q=80&w=700&auto=format&fit=crop" alt="Silver android smartphone"></figure>
+      <figure class="reveal"><img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?q=80&w=700&auto=format&fit=crop" alt="Smartphone home screen icons"></figure>
+    </div>
+  </section>
+
+  <!-- ================= WHY US ================= -->
+  <section id="why">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why Haryana Mobile</span>
+      <h2>Hum par bharosa kyun karein</h2>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-item"><span class="mark">✓</span><h3>Authenticity Guaranteed</h3><p>Sirf genuine products, trusted brands se — quality aur reliability ki guarantee.</p></div>
+      <div class="why-item"><span class="mark">✓</span><h3>Customer-First Approach</h3><p>Honest advice aur dedicated support — aapki satisfaction sabse pehle.</p></div>
+      <div class="why-item"><span class="mark">✓</span><h3>Experienced Team</h3><p>Knowledgeable aur friendly staff, best service experience ke liye committed.</p></div>
+      <div class="why-item"><span class="mark">✓</span><h3>Competitive Pricing</h3><p>Mobiles, accessories aur services par great value deals.</p></div>
+      <div class="why-item"><span class="mark">✓</span><h3>Fast & Reliable Service</h3><p>Quick repairs, smooth purchases aur timely delivery.</p></div>
+    </div>
+  </section>
+
+  <!-- ================= LOCATION ================= -->
+  <section id="location">
+    <div class="section-head reveal">
+      <span class="eyebrow">Location</span>
+      <h2>Humse mile, Hanumangarh me</h2>
+    </div>
+    <div class="location-wrap reveal">
+      <div class="map-embed">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2638.462397016404!2d74.3262056!3d29.5816214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39168cb22c33ef59%3A0x763a7f9cb078772!2sHaryana%20Mobile!5e1!3m2!1sen!2sin!4v1771409060875!5m2!1sen!2sin" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="location-card">
+        <h3>Haryana Mobile</h3>
+        <div class="loc-row"><span class="k">Address</span><span class="v">Hanumangarh town, 335513, Rajasthan</span></div>
+        <div class="loc-row"><span class="k">Phone</span><span class="v"><a href="tel:+919809044444">+91 98090 44444</a></span></div>
+        <div class="loc-row"><span class="k">WhatsApp</span><span class="v"><a href="https://wa.me/919983007999" target="_blank" rel="noopener">+91 99830 07999</a></span></div>
+        <div class="loc-row"><span class="k">Email</span><span class="v"><a href="mailto:Verma.pawan1989@gmail.com">Verma.pawan1989@gmail.com</a></span></div>
+        <div class="loc-row"><span class="k">Social</span><span class="v"><a href="https://www.facebook.com/share/17xiAVcBfx/" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.instagram.com/haryanamobile" target="_blank" rel="noopener">Instagram</a></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT CTA ================= -->
+  <section id="contact">
+    <div class="cta-panel reveal">
+      <h2>Aaj hi visit kariye ya call kariye</h2>
+      <p>Naya phone chahiye, accessory chahiye, ya repair — Haryana Mobile team aapki madad ke liye taiyar hai.</p>
+      <div class="cta-btns">
+        <a class="btn btn-primary" href="tel:+919809044444"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>+91 98090 44444</a>
+        <a class="btn btn-ghost" href="https://wa.me/919983007999" target="_blank" rel="noopener"><svg class="icon-wa" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5.1-1.3C8.5 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3C4 14.8 3.6 13.4 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8-8.4 8z"/></svg>WhatsApp</a>
+        <a class="btn btn-ghost" href="mailto:Verma.pawan1989@gmail.com"><svg class="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>Email</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="dock">
+      <a href="tel:+919809044444" title="Call"><svg class="icon-call" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg></a>
+      <a href="https://wa.me/919983007999" target="_blank" rel="noopener" title="WhatsApp"><svg class="icon-wa" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5.1-1.3C8.5 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3C4 14.8 3.6 13.4 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8-8.4 8z"/></svg></a>
+      <a href="https://www.facebook.com/share/17xiAVcBfx/" target="_blank" rel="noopener" title="Facebook"><svg class="icon-fb" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.86c0-2.51 1.49-3.9 3.78-3.9 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg></a>
+      <a href="https://www.instagram.com/haryanamobile" target="_blank" rel="noopener" title="Instagram"><svg class="icon-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="mailto:Verma.pawan1989@gmail.com" title="Email"><svg class="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></a>
+    </div>
+    <div class="foot-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#location">Location</a>
+    </div>
+    <div>© <span id="year"></span> Haryana Mobile, Hanumangarh — Rajasthan.</div>
+  </footer>
+
+  <!-- ================= CHATBOT WIDGET (UI only — logic TBD) ================= -->
+  <button class="chat-toggle" id="chatToggle" aria-label="Chat kholein">
+    <span class="icon-chat">💬</span>
+    <span class="icon-close">✕</span>
+  </button>
+
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <span class="dot"></span>
+      <div class="info">
+        <h4>Haryana Mobile Assistant</h4>
+        <p>FAQ bot — instant jawab</p>
+      </div>
+    </div>
+    <div class="chat-body" id="chatBody"></div>
+    <div class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Apna sawal likhein...">
+      <button class="chat-send" id="chatSend" aria-label="Bhejein">➤</button>
+    </div>
+  </div>
+
+  <script>
+    // ===== Haryana Mobile — Simple FAQ Chatbot (rule-based, no pricing info) =====
+    const chatToggle = document.getElementById('chatToggle');
+    const chatWindow = document.getElementById('chatWindow');
+    const chatBody = document.getElementById('chatBody');
+    const chatInput = document.getElementById('chatInput');
+    const chatSend = document.getElementById('chatSend');
+
+    chatToggle.addEventListener('click', () => {
+      chatToggle.classList.toggle('open');
+      chatWindow.classList.toggle('open');
+      if(chatWindow.classList.contains('open') && chatBody.children.length === 0){
+        greetUser();
+      }
+    });
+
+    // ---- FAQ knowledge base (intentionally no price info — prices change) ----
+    const faqs = [
+      {
+        q: "Products available",
+        keywords: ["product", "smartphone", "phone", "brand", "kya kya", "available", "milta", "milte"],
+        a: "Hamare paas ye sab available hai: 📱 Latest Android & iOS smartphones (flagship se budget tak), feature phones, aur accessories jaise chargers, earphones, tempered glass, cases/covers aur power banks."
+      },
+      {
+        q: "Repair services",
+        keywords: ["repair", "thik", "kharab", "screen", "battery", "software", "band", "toot"],
+        a: "🔧 Repair & Support me hum ye services dete hain: screen replacement, battery replacement, software update aur complete diagnostics."
+      },
+      {
+        q: "Genuine products",
+        keywords: ["genuine", "original", "asli", "duplicate", "quality"],
+        a: "✅ Ji haan, Haryana Mobile me sirf 100% genuine products, trusted brands se milte hain — quality guaranteed."
+      },
+      {
+        q: "Warranty",
+        keywords: ["warranty", "guarantee", "after sale", "after-sale"],
+        a: "📦 Hum transparent warranty policies follow karte hain aur reliable after-sales customer support dete hain."
+      },
+      {
+        q: "Expert advice",
+        keywords: ["advice", "suggest", "confuse", "konsa phone", "kaunsa phone", "guidance"],
+        a: "💬 Aapke budget aur zaroorat ke hisaab se hamari team personalized guidance deti hai sahi phone chunne me — shop visit karein ya call/WhatsApp karein."
+      },
+      {
+        q: "Location / address",
+        keywords: ["location", "address", "kaha", "kahan", "shop", "dukaan"],
+        a: "📍 Hum Hanumangarh Town, 335513, Rajasthan me located hain. Poora address aur map is site ke 'Location' section me hai."
+      },
+      {
+        q: "Contact",
+        keywords: ["contact", "number", "call", "phone number", "sampark"],
+        a: "📞 Aap humein +91 98090 44444 par call kar sakte hain."
+      },
+      {
+        q: "WhatsApp",
+        keywords: ["whatsapp", "watsapp", "wa"],
+        a: "💬 WhatsApp par humse baat karne ke liye +91 99830 07999 par message karein."
+      },
+      {
+        q: "Email",
+        keywords: ["email", "mail", "e-mail"],
+        a: "✉️ Aap humein Verma.pawan1989@gmail.com par email kar sakte hain."
+      },
+      {
+        q: "Social media",
+        keywords: ["facebook", "instagram", "social"],
+        a: "📱 Hum Facebook aur Instagram (@haryanamobile) par bhi active hain — latest updates ke liye follow karein."
+      },
+      {
+        q: "Timing",
+        keywords: ["timing", "time", "khulta", "band hota", "kab khulta", "open", "close"],
+        a: "🕒 Exact shop timing jaanne ke liye kripya call ya WhatsApp kar lijiye — team turant bata degi."
+      },
+      {
+        q: "Exchange/Old phone",
+        keywords: ["exchange", "purana phone", "old phone", "buyback"],
+        a: "🔄 Old phone exchange ke baare me exact details ke liye shop visit karein ya call/WhatsApp par pooch lijiye."
+      },
+      {
+        q: "EMI/Finance",
+        keywords: ["emi", "finance", "installment", "loan"],
+        a: "💳 EMI/finance options available hain ya nahi, iski confirm jaankari ke liye call ya WhatsApp kar lijiye."
+      },
+      {
+        q: "Delivery",
+        keywords: ["delivery", "ghar tak", "deliver"],
+        a: "🚚 Delivery/pickup options ke baare me sahi jaankari ke liye humse call ya WhatsApp par sampark karein."
+      },
+      {
+        q: "Team",
+        keywords: ["team", "staff", "experience"],
+        a: "👨‍🔧 Hamari knowledgeable aur friendly team best service experience dene ke liye committed hai."
+      }
+    ];
+
+    const quickReplies = ["Products available?", "Repair services?", "Shop location?", "Contact number?"];
+
+    function greetUser(){
+      addMessage("Namaste! 👋 Haryana Mobile me aapka swagat hai. Neeche diye options se choose karein ya apna sawal type karein.", 'bot');
+      addQuickReplies();
+    }
+
+    function addMessage(text, sender){
+      const msg = document.createElement('div');
+      msg.className = 'chat-msg ' + sender;
+      msg.textContent = text;
+      chatBody.appendChild(msg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function addQuickReplies(){
+      const wrap = document.createElement('div');
+      wrap.className = 'chat-quick';
+      quickReplies.forEach(label => {
+        const chip = document.createElement('button');
+        chip.className = 'chat-chip';
+        chip.textContent = label;
+        chip.addEventListener('click', () => handleUserQuery(label));
+        wrap.appendChild(chip);
+      });
+      chatBody.appendChild(wrap);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function findAnswer(text){
+      const lower = text.toLowerCase();
+      for(const item of faqs){
+        if(item.keywords.some(k => lower.includes(k))){
+          return item.a;
+        }
+      }
+      return "Hmm, iska sahi jawab abhi mere paas nahi hai 😊 Lekin fikar mat kijiye — hamari team aapki poori madad karegi! Seedha call karein 📞 +91 98090 44444 ya WhatsApp karein 💬 +91 99830 07999, aapko turant sahi jaankari mil jayegi.";
+    }
+
+    function handleUserQuery(text){
+      addMessage(text, 'user');
+      chatInput.value = '';
+      setTimeout(() => addMessage(findAnswer(text), 'bot'), 350);
+    }
+
+    function sendMessage(){
+      const text = chatInput.value.trim();
+      if(!text) return;
+      handleUserQuery(text);
+    }
+
+    chatSend.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter') sendMessage();
+    });
+  </script>
+
+  <script>
+    // Live clock in the decorative status bar
+    function updateClock(){
+      const now = new Date();
+      let h = now.getHours(), m = now.getMinutes();
+      const period = h >= 12 ? 'PM' : 'AM';
+      h = h % 12; if(h === 0) h = 12;
+      document.getElementById('clock').textContent =
+        String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ' ' + period;
+    }
+    updateClock();
+    setInterval(updateClock, 1000 * 30);
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
